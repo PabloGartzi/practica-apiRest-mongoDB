@@ -3,7 +3,8 @@ const mongoose = require('mongoose'); //CONEXIÓN CON LA BD DE MONGO
 
 const connection = async () => {
     try {
-        const response = await mongoose.connect("mongodb+srv://admin:123456ABC@cluster0.7laarfu.mongodb.net/practica-servicios")//Debería ser mongoose.connect(process.env.DB_URI) pero da problemas en el despliegue en render
+        //Preguntar a cerca de esto para render... Porque el env esta oculto pero render lo necesita
+        const response = await mongoose.connect(process.env.DB_URI)
         return response //Opcional (No lo necesito)
 
     } catch (error) {

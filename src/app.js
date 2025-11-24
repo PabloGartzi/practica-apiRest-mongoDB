@@ -11,16 +11,10 @@ connection()
   .catch((error) => console.log(error))
 
 //TEMPLATES
-//   //Establecer ejs como template engine
-// app.set('view engine' , 'ejs')
-
-//   //Estableder cual va a ser la carpeta de vistas
-// app.set("views",__dirname + "/views");
 
 //MIDDLEWARE
-  //configurar carpeta public
-app.use(express.static(__dirname+'/public'))
 app.use(express.json()) //Cuidao que sin esta no va lo de añadir servicio --> IMPORTANTE
+app.use(express.urlencoded())
 
 //RUTAS
 app.use('/api/v1', require('./routes/servicios.rutas'));

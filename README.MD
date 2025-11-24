@@ -27,6 +27,7 @@ cp .env.template .env
 ```
 
 5. Configura las variables de entorno necesarias en el archivo .env:
+La URI es mongodb+srv://admin:123456ABC@cluster0.7laarfu.mongodb.net/practica-servicios
 
 ### Ejemplo de variables de entorno
 PORT=3000

@@ -1,7 +1,7 @@
 const Servicio = require('../models/servicio.model')
 const mongoose = require('mongoose');
 
-//GET ALL CLIENTS
+//GET ALL SERVICES
 const getAllServicios = async (req, res) => {
     try {
         const servicios = await Servicio.find()
@@ -21,7 +21,7 @@ const getAllServicios = async (req, res) => {
     }
 }
 
-//GET A CLIENT BY ID
+//GET A SERVICE BY ID
 const getServiceById = async (req, res) => {
     const id = req.params.id
     if (!mongoose.Types.ObjectId.isValid(id)) { //Esto lo usamos porque si el id no tiene la longitud correcta no es un problema de servidor, si no de que el id ni siquiera es válido
@@ -54,7 +54,7 @@ const getServiceById = async (req, res) => {
 }
 
 
-//CREATE A CLIENT
+//CREATE A SERVICE
 const createServicio = async (req, res) => {
     const servicio = new Servicio(req.body)
     try {
@@ -77,7 +77,7 @@ const createServicio = async (req, res) => {
 }
 
 
-//CREATE A SERVICE
+//UPDATE A SERVICE
 const updateService = async (req, res) => {
     const id = req.params.id
     const modificacion = req.body
