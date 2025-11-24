@@ -45,6 +45,7 @@ http://localhost:3000/api/v1/
 ## URL de despliegue
 
 La API estará disponible en Render: https://practica-apirest-mongodb.onrender.com
+    Por ejemplo, para ver todos los servicios: https://practica-apirest-mongodb.onrender.com/api/v1
 
 
 ## Endpoints para probar en Postman
