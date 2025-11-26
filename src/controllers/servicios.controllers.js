@@ -24,12 +24,6 @@ const getAllServicios = async (req, res) => {
 //GET A SERVICE BY ID
 const getServiceById = async (req, res) => {
     const id = req.params.id
-    if (!mongoose.Types.ObjectId.isValid(id)) { //Esto lo usamos porque si el id no tiene la longitud correcta no es un problema de servidor, si no de que el id ni siquiera es válido
-        return res.status(400).json({
-            ok: false,
-            msg: "El ID es inválido mi rey"
-        });
-    }
     try { //Si el id ha sido válido intentamos buscarlo en la BD - Si lo encontramos -> Todo way; Si NO lo encontramos -> Todo NO way
         const servicio = await Servicio.findById(id)
         if (servicio) {
@@ -56,6 +50,7 @@ const getServiceById = async (req, res) => {
 
 //CREATE A SERVICE
 const createServicio = async (req, res) => {
+    console.log(req.body)
     const servicio = new Servicio(req.body)
     try {
         const servicioGuardado = await servicio.save()
@@ -81,12 +76,6 @@ const createServicio = async (req, res) => {
 const updateService = async (req, res) => {
     const id = req.params.id
     const modificacion = req.body
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).json({
-            ok: false,
-            msg: "El ID es inválido mi rey"
-        });
-    }
     try {
         const servicio = await Servicio.findByIdAndUpdate(id, modificacion, {new: true}) //Lo de new:true es para que devuelva el servicio actualizado, si no, devuelve el antiguo
         if (servicio) {
@@ -113,12 +102,6 @@ const updateService = async (req, res) => {
 //DELETE A SERVICE
 const deleteService = async (req, res) => {
     const id = req.params.id
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).json({
-            ok: false,
-            msg: "El ID es inválido mi rey"
-        });
-    }
     try {
         const servicio = await Servicio.findByIdAndDelete(id)
         if (servicio) {

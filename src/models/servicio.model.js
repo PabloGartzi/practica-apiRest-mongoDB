@@ -6,9 +6,24 @@ const ServicioSchema = new Schema({
         required: true,
         unique: true
     },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
     descripcion: {
         type: String,
         required: true
+    },
+    direccion: {
+        latitud: {
+            type: Number,
+            required: true
+        },
+        longitud: {
+            type: Number,
+            required: true
+        }
     },
     precio: {
         type: Number,
