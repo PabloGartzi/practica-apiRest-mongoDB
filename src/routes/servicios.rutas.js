@@ -14,7 +14,7 @@ const{validarID} = require("../middlewares/validarID");
 router.get('/', getAllServicios)
 
 //GET A CLIENT BY ID
-router.get('/servicios/:id', validarID
+router.get('/:id', validarID
     //Para validar el id podríamos hacer param("id").isMongoId().withMessage("El ID no es un MongoID válido")
     , getServiceById)
 
@@ -53,7 +53,7 @@ router.post('/servicios/crear', [
 ] , createServicio)
 
 //UPDATE A CLIENT BY ID
-router.put('/servicios/modificar/:id', [
+router.put('/modificar/:id', [
     validarID,
     validarModelo,
     validarMinimoUno,
@@ -87,7 +87,7 @@ router.put('/servicios/modificar/:id', [
 ] , updateService)
 
 //DELETE A CLIENT BY ID
-router.delete('/servicios/borrar/:id', validarID, deleteService)
+router.delete('/borrar/:id', validarID, deleteService)
 
 
 

@@ -24,12 +24,13 @@ app.use(express.json()) //Cuidao que sin esta no va lo de añadir servicio --> I
 app.use(express.urlencoded())
 
 //app.use(isAdmin) //ESTE ESTÁ EN GLOBAL, EL DE DEBAJO ES SOLO PARA LA RUTA DASHBOARD
-app.get('/dashboard', isAdmin, (req, res) => { //ESTO ES PARA PROBAR LO DEL MIDDLEWARE, HABRÍA QUE SEPARARLO Y LLEVARLO A LAS RUTAS Y LOS CONTROLADORES
+/* app.get('/dashboard', isAdmin, (req, res) => { //ESTO ES PARA PROBAR LO DEL MIDDLEWARE, HABRÍA QUE SEPARARLO Y LLEVARLO A LAS RUTAS Y LOS CONTROLADORES
   res.send('You are an admin');
-});
+}); */
 
 //RUTAS
-app.use('/api/v1', require('./routes/servicios.rutas'));
+app.use('/api/v1/servicios', require('./routes/servicios.rutas'));
+app.use('/api/v1/auth', require('./routes/user.rutas'));
 
 
 

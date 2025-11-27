@@ -1,11 +1,18 @@
-const isAdmin = ((req, res, next) => {
-    if(req.body.isAdmin){
-        next()
-    }
-    else{
-        res.status(403).send(`Lo sentimos, no esta autorizado para acceder a ${req.ur}`)
-    }
+const jwt = require("jsonwebtoken");
+
+const validarRol = ((rolesPermitidos) => {
+    return (req, res, next) => {
+        const rol = req.userToken.rol;
+
+        if (!rolesPermitidos.includes(rol)) {
+            return res.status(403).json({
+                of: false,
+                msg: "No tienes permisos." 
+            })
+        }
+        next();
+    };
 })
 
 
-module.exports={isAdmin}
+module.exports={validarRol}
